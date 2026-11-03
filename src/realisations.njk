@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+permalink: /realisations/
+titre: Nos réalisations
+meta_description: "Réalisations de Livré Net en photos avant/après : fins de chantier, bureaux, remises en état en Seine-Saint-Denis et Paris nord."
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Accueil</a> › Réalisations</p>
+    <h1>Nos réalisations</h1>
+    <p class="lead">Chaque intervention se termine par des photos avant/après, prises sous le même angle. Voici une sélection de nos chantiers.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+  {% if collections.realisations.length %}
+    <div class="grid-3">
+      {% for r in collections.realisations %}
+      <a class="real-card" href="{{ r.url }}">
+        <div class="duo duo--mini">
+          {% set src = r.data.image_avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
+          {% set src = r.data.image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+        </div>
+        <h3>{{ r.data.titre }}</h3>
+        <p class="muted">{{ r.data.service }} · {{ r.data.lieu }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty"><p><strong>Nos premières réalisations arrivent.</strong> Elles seront publiées ici avec leurs photos avant/après, chantier par chantier.</p></div>
+  {% endif %}
+  </div>
+</section>
+{% include "partials/cta.njk" %}

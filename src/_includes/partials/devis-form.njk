@@ -1,0 +1,30 @@
+<form class="form" name="devis" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="societe_web" enctype="multipart/form-data">
+  <input type="hidden" name="form-name" value="devis">
+  <p class="hp"><label>Ne pas remplir <input name="societe_web"></label></p>
+  <div class="form__row">
+    <label class="field">Nom et prénom *<input type="text" name="nom" autocomplete="name" required></label>
+    <label class="field">Entreprise<input type="text" name="entreprise" autocomplete="organization"></label>
+  </div>
+  <div class="form__row">
+    <label class="field">Téléphone *<input type="tel" name="telephone" autocomplete="tel" required></label>
+    <label class="field">E-mail *<input type="email" name="email" autocomplete="email" required></label>
+  </div>
+  <div class="form__row">
+    <label class="field">Prestation
+      <select name="prestation">
+        {% for s in collections.services %}<option {% if preselect == s.fileSlug %}selected{% endif %}>{{ s.data.titre_court }}</option>{% endfor %}
+        <option>Autre</option>
+      </select>
+    </label>
+    <label class="field">Surface approximative (m²)<input type="number" name="surface" min="0" inputmode="numeric"></label>
+  </div>
+  <div class="form__row">
+    <label class="field">Ville du chantier ou des locaux *<input type="text" name="ville" required></label>
+    <label class="field">Date souhaitée<input type="date" name="date_souhaitee"></label>
+  </div>
+  <label class="field">Votre besoin *<textarea name="message" rows="5" required placeholder="Type de locaux, état, accès, contraintes de planning…"></textarea></label>
+  <label class="field">Photos (facultatif)<input type="file" name="photos" accept="image/*"></label>
+  <label class="check"><input type="checkbox" name="rgpd" required><span>J'accepte que mes informations soient utilisées pour traiter ma demande (<a href="/confidentialite/">confidentialité</a>).</span></label>
+  <button class="btn btn--primary btn--lg btn--block" type="submit">Envoyer ma demande</button>
+  <p class="form__note">Réponse sous {{ site.delai_reponse }}. Vos informations servent uniquement à vous répondre.</p>
+</form>

@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero">
+  <div class="wrap wrap--narrow">
+    <p class="crumbs"><a href="/">Accueil</a> › <a href="/recrutement/">Recrutement</a></p>
+    <h1>{{ titre }}</h1>
+    <ul class="chips"><li>{{ contrat }}</li><li>{{ lieu }}</li><li>{{ horaires }}</li></ul>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap wrap--narrow prose">
+    <p class="lead">{{ resume }}</p>
+    {{ content | safe }}
+    <p><strong>Salaire :</strong> {{ salaire }}</p>
+    <p><a class="btn btn--primary btn--lg" href="/recrutement/#postuler">Postuler</a></p>
+  </div>
+</section>

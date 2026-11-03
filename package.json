@@ -1,0 +1,12 @@
+{
+  "name": "livre-net-site",
+  "private": true,
+  "description": "Site Livré Net — nettoyage fin de chantier et bureaux",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

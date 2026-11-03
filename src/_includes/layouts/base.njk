@@ -1,0 +1,70 @@
+{% from "partials/icons.njk" import icon %}<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if seo_titre %}{% set pageTitle = seo_titre %}{% elif titre %}{% set pageTitle = titre + " | " + site.nom %}{% else %}{% set pageTitle = site.nom + " — Nettoyage fin de chantier et bureaux, Saint-Denis (93)" %}{% endif %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ meta_description or resume or 'Nettoyage de fin de chantier et entretien de bureaux en Seine-Saint-Denis, Val-d\'Oise et Paris nord. Devis sous 24 h, photos avant/après.' }}">
+<link rel="canonical" href="{{ (page.url or "/") | absolute(site.url) }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="{{ site.nom }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ meta_description or resume or site.slogan }}">
+<meta property="og:url" content="{{ (page.url or "/") | absolute(site.url) }}">
+<meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute(site.url) }}">
+<meta name="theme-color" content="#143A5A">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="icon" type="image/png" href="/assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "{{ site.url }}/#entreprise",
+  "name": {{ site.nom | json | safe }},
+  "description": "Nettoyage de fin de chantier et entretien de bureaux",
+  "url": {{ site.url | json | safe }},
+  "logo": "{{ site.url }}/assets/img/livre-net-logo.png",
+  "image": "{{ site.url }}/assets/img/og-image.png",
+  {% if site.telephone %}"telephone": {{ site.telephone | json | safe }},{% endif %}
+  "email": {{ site.email | json | safe }},
+  "address": { "@type": "PostalAddress", "addressLocality": {{ site.ville | json | safe }}, "postalCode": {{ site.code_postal | json | safe }}, "addressCountry": "FR" },
+  "areaServed": ["Seine-Saint-Denis", "Val-d'Oise", "Paris"]
+}
+</script>
+{% block head %}{% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#contenu">Aller au contenu</a>
+{% include "partials/header.njk" %}
+<main id="contenu">
+{{ content | safe }}
+</main>
+{% include "partials/footer.njk" %}
+<nav class="mobile-bar" aria-label="Contact rapide">
+  {% if site.telephone %}<a href="tel:{{ site.telephone | tel }}">{{ icon("tel", 20) }}<span>Appeler</span></a>{% endif %}
+  {% if site.whatsapp %}<a href="https://wa.me/{{ site.whatsapp | wa }}">{{ icon("whatsapp", 20) }}<span>WhatsApp</span></a>{% endif %}
+  <a class="mobile-bar__cta" href="/devis/">{{ icon("fleche", 20) }}<span>Devis gratuit</span></a>
+</nav>
+<script src="/assets/js/main.js" defer></script>
+{% if page.url == "/" %}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function (user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function () { document.location.href = "/admin/"; });
+      }
+    });
+  }
+</script>
+{% endif %}
+</body>
+</html>

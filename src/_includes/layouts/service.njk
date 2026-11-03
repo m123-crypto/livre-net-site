@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+---
+{% from "partials/icons.njk" import icon %}
+<section class="page-hero page-hero--service">
+  <div class="wrap page-hero__grid">
+    <div>
+      <p class="crumbs"><a href="/">Accueil</a> › <a href="/services/">Services</a> › {{ titre_court }}</p>
+      <h1>{{ titre }}</h1>
+      <p class="lead">{{ resume }}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="/devis/?service={{ page.fileSlug }}">Demander un devis</a>
+        <a class="btn btn--outline btn--lg" href="#inclus">Ce qui est inclus</a>
+      </div>
+      <p class="price-note">{{ prix_depart }} · Visite gratuite · Devis sous {{ site.delai_reponse }}</p>
+    </div>
+    <div class="duo">
+      {% set src = image %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
+      {% set src = image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="inclus">
+  <div class="wrap two-col">
+    <div class="card card--brand">
+      <h2>Ce qui est inclus</h2>
+      <ul class="checklist checklist--light">
+        {% for i in inclus %}<li>{{ icon("check", 20) }}<span>{{ i }}</span></li>{% endfor %}
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Pour qui</h2>
+      <ul class="checklist">
+        {% for p in pour_qui %}<li>{{ icon("check", 20) }}<span>{{ p }}</span></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% if formules %}
+<section class="section section--alt">
+  <div class="wrap">
+    <p class="eyebrow">Nos formules</p>
+    <h2 class="h2">Un forfait mensuel adapté à vos locaux</h2>
+    <div class="grid-3">
+      {% for f in formules %}
+      <div class="plan {% if loop.index == 2 %}plan--featured{% endif %}">
+        {% if loop.index == 2 %}<span class="badge">La plus choisie</span>{% endif %}
+        <h3>{{ f.nom }}</h3>
+        <p class="plan__freq">{{ f.frequence }}</p>
+        <p>{{ f.detail }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--tight">
+  <div class="wrap prose">
+    {{ content | safe }}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <p class="eyebrow">Questions fréquentes</p>
+    <h2 class="h2">Vous vous demandez peut-être…</h2>
+    {% include "partials/faq.njk" %}
+  </div>
+</section>
+{% include "partials/cta.njk" %}

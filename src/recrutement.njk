@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+permalink: /recrutement/
+titre: Recrutement
+meta_description: Livré Net recrute des agents de propreté à Saint-Denis et en Seine-Saint-Denis. Postes à temps partiel, débutants acceptés.
+---
+{% from "partials/icons.njk" import icon %}
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Accueil</a> › Recrutement</p>
+    <h1>Rejoindre l'équipe</h1>
+    <p class="lead">Nous recrutons des agents de propreté sérieux et ponctuels, débutants acceptés : nous vous formons sur place.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap two-col">
+    <div>
+      <h2 class="h2">Offres en cours</h2>
+      {% if collections.offres.length %}
+      <div class="list-links">
+        {% for o in collections.offres %}<a href="{{ o.url }}"><strong>{{ o.data.titre }}</strong><span>{{ o.data.contrat }} · {{ o.data.lieu }}</span>{{ icon("fleche", 18) }}</a>{% endfor %}
+      </div>
+      {% else %}
+      <div class="empty"><p>Pas d'offre ouverte en ce moment. Envoyez-nous une candidature spontanée : nous vous recontactons dès qu'un poste s'ouvre près de chez vous.</p></div>
+      {% endif %}
+      <h2 class="h2" style="margin-top:2.5rem">Ce que nous proposons</h2>
+      <ul class="checklist">
+        <li>{{ icon("check", 20) }}<span>Un vrai contrat de travail, salaire selon la convention collective de la propreté</span></li>
+        <li>{{ icon("check", 20) }}<span>Mutuelle et remboursement de 50 % du pass Navigo</span></li>
+        <li>{{ icon("check", 20) }}<span>Des plannings stables, sur des sites proches</span></li>
+        <li>{{ icon("check", 20) }}<span>Une formation sur place et du matériel professionnel</span></li>
+      </ul>
+    </div>
+    <div class="card" id="postuler">
+      <h2>Postuler</h2>
+      <form class="form" name="candidature" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="societe_web" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="candidature">
+        <p class="hp"><label>Ne pas remplir <input name="societe_web"></label></p>
+        <label class="field">Nom et prénom *<input type="text" name="nom" autocomplete="name" required></label>
+        <div class="form__row">
+          <label class="field">Téléphone *<input type="tel" name="telephone" autocomplete="tel" required></label>
+          <label class="field">E-mail<input type="email" name="email" autocomplete="email"></label>
+        </div>
+        <label class="field">Ville où vous habitez *<input type="text" name="ville" required></label>
+        <label class="field">Disponibilités<input type="text" name="disponibilites" placeholder="Ex. : 6 h – 9 h et 18 h – 21 h, en semaine"></label>
+        <label class="field">CV (facultatif)<input type="file" name="cv" accept=".pdf,.doc,.docx,image/*"></label>
+        <label class="field">Message<textarea name="message" rows="4"></textarea></label>
+        <label class="check"><input type="checkbox" name="rgpd" required><span>J'accepte que mes informations soient utilisées pour étudier ma candidature (<a href="/confidentialite/">confidentialité</a>).</span></label>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Envoyer ma candidature</button>
+      </form>
+    </div>
+  </div>
+</section>

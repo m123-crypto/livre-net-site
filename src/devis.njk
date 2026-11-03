@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+permalink: /devis/
+titre: Demander un devis
+meta_description: Demandez un devis gratuit pour un nettoyage de fin de chantier, l'entretien de vos bureaux, la vitrerie ou une remise en état. Réponse sous 24 h.
+---
+{% from "partials/icons.njk" import icon %}
+<section class="section devis">
+  <div class="wrap two-col two-col--devis">
+    <div>
+      <p class="crumbs"><a href="/">Accueil</a> › Devis</p>
+      <h1>Parlez-nous de votre chantier.</h1>
+      <p class="lead">Visite gratuite et devis sous {{ site.delai_reponse }}. Plus vous nous donnez de détails, plus le devis sera précis.</p>
+      <ul class="checklist">
+        <li>{{ icon("check", 20) }}<span>Sans engagement</span></li>
+        <li>{{ icon("check", 20) }}<span>Prix clair, au m² ou au forfait</span></li>
+        <li>{{ icon("check", 20) }}<span>Documents de sous-traitance fournis sur demande</span></li>
+      </ul>
+      <div class="contact-box">
+        <p class="contact-box__title">Vous préférez parler directement ?</p>
+        {% if site.telephone %}<a class="contact-box__big" href="tel:{{ site.telephone | tel }}">{{ icon("tel", 22) }}{{ site.telephone_affiche }}</a>{% endif %}
+        {% if site.whatsapp %}<a href="https://wa.me/{{ site.whatsapp | wa }}">{{ icon("whatsapp", 18) }}WhatsApp</a>{% endif %}
+        <a href="mailto:{{ site.email }}">{{ icon("mail", 18) }}{{ site.email }}</a>
+        <p class="muted">{{ site.horaires }}</p>
+      </div>
+    </div>
+    <div class="card card--form">
+      {% include "partials/devis-form.njk" %}
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var s = new URLSearchParams(location.search).get("service");
+    if (!s) return;
+    var map = {};
+    {% for sv in collections.services %}map[{{ sv.fileSlug | json | safe }}] = {{ sv.data.titre_court | json | safe }};{% endfor %}
+    var sel = document.querySelector('select[name="prestation"]');
+    if (sel && map[s]) sel.value = map[s];
+  })();
+</script>

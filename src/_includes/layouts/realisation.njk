@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Accueil</a> › <a href="/realisations/">Réalisations</a></p>
+    <h1>{{ titre }}</h1>
+    <ul class="chips"><li>{{ service }}</li><li>{{ lieu }}</li>{% if surface %}<li>{{ surface }}</li>{% endif %}{% if duree %}<li>{{ duree }}</li>{% endif %}</ul>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="duo duo--large">
+      {% set src = image_avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
+      {% set src = image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+    </div>
+    <div class="prose" style="margin-top:2rem">{{ content | safe }}</div>
+  </div>
+</section>
+{% include "partials/cta.njk" %}

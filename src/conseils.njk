@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+permalink: /conseils/
+titre: Conseils
+meta_description: Conseils pratiques sur le nettoyage de fin de chantier et l'entretien de bureaux, par Livré Net.
+---
+{% from "partials/icons.njk" import icon %}
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Accueil</a> › Conseils</p>
+    <h1>Conseils</h1>
+    <p class="lead">Nos conseils de terrain pour livrer des chantiers propres et garder des bureaux nets.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap grid-2">
+    {% for a in collections.conseils %}
+    <a class="article-card" href="{{ a.url }}">
+      <p class="muted"><time datetime="{{ a.date | isoDate }}">{{ a.date | dateFr }}</time></p>
+      <h2>{{ a.data.titre }}</h2>
+      <p>{{ a.data.resume }}</p>
+      <span class="service-card__more">Lire l'article {{ icon("fleche", 18) }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>

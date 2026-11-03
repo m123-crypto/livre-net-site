@@ -1,0 +1,13 @@
+{% from "partials/icons.njk" import icon %}
+<section class="cta-band">
+  <div class="wrap cta-band__in">
+    <div>
+      <h2>{{ accueil.cta_titre }}</h2>
+      <p>{{ accueil.cta_texte }}</p>
+    </div>
+    <div class="cta-band__actions">
+      <a class="btn btn--light btn--lg" href="/devis/">Demander un devis gratuit</a>
+      {% if site.whatsapp %}<a class="btn btn--ghost-light btn--lg" href="https://wa.me/{{ site.whatsapp | wa }}">{{ icon("whatsapp", 20) }}WhatsApp</a>{% endif %}
+    </div>
+  </div>
+</section>

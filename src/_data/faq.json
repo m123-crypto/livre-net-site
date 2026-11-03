@@ -1,0 +1,11 @@
+{
+  "questions": [
+    { "question": "Dans quelles villes intervenez-vous ?", "reponse": "Principalement en Seine-Saint-Denis (93), dans le Val-d'Oise (95) et à Paris nord (17e, 18e, 19e arrondissements). Pour une autre ville d'Île-de-France, demandez quand même : on étudie chaque chantier." },
+    { "question": "Combien coûte un nettoyage de fin de chantier ?", "reponse": "Le prix dépend de la surface, du niveau de salissure (poussière, peinture, colle, plâtre), de l'accès et des délais. Après une visite gratuite, nous envoyons un devis au m² ou au forfait sous 24 h." },
+    { "question": "Pouvez-vous intervenir en urgence avant une livraison ?", "reponse": "Oui, selon nos disponibilités. Prévenez-nous dès que la date des OPR ou de la livraison est connue : une intervention sous 24 à 48 h est souvent possible, avec une majoration indiquée sur le devis." },
+    { "question": "Travaillez-vous en sous-traitance pour des entreprises du BTP ?", "reponse": "Oui. Nous fournissons sur demande notre extrait Kbis, notre attestation d'assurance et l'attestation de vigilance URSSAF, et nous adaptons nos horaires au planning du chantier." },
+    { "question": "Fournissez-vous le matériel et les produits ?", "reponse": "Oui. Nos équipes viennent avec leur matériel (aspirateurs eau et poussière, monobrosse, matériel de vitrerie) et leurs produits. Vous n'avez rien à prévoir à part l'accès à l'eau et à l'électricité." },
+    { "question": "Comment fonctionne un contrat d'entretien de bureaux ?", "reponse": "Après une visite, nous proposons un forfait mensuel fixe selon la surface et le nombre de passages par semaine. Le même agent intervient sur votre site, tôt le matin ou le soir, et nous contrôlons la qualité chaque mois." },
+    { "question": "Comment prouvez-vous que le travail est fait ?", "reponse": "À la fin de chaque intervention, nos agents prennent des photos des zones nettoyées. Vous les recevez le jour même, sur WhatsApp ou par e-mail." }
+  ]
+}

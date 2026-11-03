@@ -1,0 +1,5 @@
+{# params: src, label, tone ('avant'|'apres'), alt #}
+<figure class="photo photo--{{ tone }}">
+  {% if src %}<img src="{{ src }}" alt="{{ alt or label }}" loading="lazy">{% else %}<div class="photo__ph" role="img" aria-label="{{ label }} — photo à ajouter"><span class="photo__tiles" aria-hidden="true"></span><span class="photo__note">Photo à ajouter depuis l'admin</span></div>{% endif %}
+  <figcaption class="photo__tag">{{ label }}</figcaption>
+</figure>

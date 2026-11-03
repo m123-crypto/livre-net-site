@@ -1,0 +1,31 @@
+{% from "partials/icons.njk" import icon %}
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
+    <div class="site-footer__brand">
+      <img src="/assets/img/livre-net-logo-blanc.svg" alt="{{ site.nom }}" width="156" height="40">
+      <p>Nettoyage de fin de chantier et entretien de bureaux en {{ site.zone_resume }}.</p>
+      <a class="btn btn--light" href="/devis/">Demander un devis</a>
+    </div>
+    <div>
+      <p class="site-footer__title">Services</p>
+      <ul>{% for s in collections.services %}<li><a href="{{ s.url }}">{{ s.data.titre_court }}</a></li>{% endfor %}</ul>
+    </div>
+    <div>
+      <p class="site-footer__title">Zones</p>
+      <ul>{% for v in collections.villes %}<li><a href="{{ v.url }}">{{ v.data.nom }}</a></li>{% endfor %}</ul>
+    </div>
+    <div>
+      <p class="site-footer__title">Contact</p>
+      <ul class="site-footer__contact">
+        {% if site.telephone %}<li><a href="tel:{{ site.telephone | tel }}">{{ icon("tel", 16) }}{{ site.telephone_affiche }}</a></li>{% endif %}
+        <li><a href="mailto:{{ site.email }}">{{ icon("mail", 16) }}{{ site.email }}</a></li>
+        <li>{{ icon("pin", 16) }}{{ site.ville }} ({{ site.code_postal }})</li>
+        <li>{{ icon("horloge", 16) }}{{ site.horaires }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap site-footer__bottom">
+    <p>© {{ annee }} {{ site.nom }} {{ site.forme }} · SIRET {{ site.siret }}</p>
+    <p><a href="/entreprise/">L'entreprise</a> · <a href="/recrutement/">Recrutement</a> · <a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Confidentialité</a></p>
+  </div>
+</footer>

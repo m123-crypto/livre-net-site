@@ -1,0 +1,27 @@
+{% from "partials/icons.njk" import icon %}
+{% set curUrl = (page.url or "") + "" %}
+<header class="site-header">
+  <div class="wrap site-header__in">
+    <a class="logo" href="/" aria-label="{{ site.nom }}, accueil"><img src="/assets/img/livre-net-logo.svg" alt="{{ site.nom }}" width="172" height="44"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">{{ icon("menu", 24) }}<span>Menu</span></button>
+    <nav id="nav" class="nav" aria-label="Menu principal">
+      <ul class="nav__list">
+        <li class="nav__item nav__item--sub">
+          <a href="/services/" {% if curUrl.startsWith("/services") %}aria-current="page"{% endif %}>Services</a>
+          <ul class="nav__sub">
+            {% for s in collections.services %}<li><a href="{{ s.url }}">{{ s.data.titre_court }}</a></li>{% endfor %}
+          </ul>
+        </li>
+        <li class="nav__item"><a href="/realisations/" {% if curUrl.startsWith("/realisations") %}aria-current="page"{% endif %}>Réalisations</a></li>
+        <li class="nav__item"><a href="/zones/" {% if curUrl.startsWith("/zones") %}aria-current="page"{% endif %}>Zones</a></li>
+        <li class="nav__item"><a href="/entreprise/" {% if curUrl.startsWith("/entreprise") %}aria-current="page"{% endif %}>L'entreprise</a></li>
+        <li class="nav__item"><a href="/conseils/" {% if curUrl.startsWith("/conseils") %}aria-current="page"{% endif %}>Conseils</a></li>
+        <li class="nav__item"><a href="/recrutement/" {% if curUrl.startsWith("/recrutement") %}aria-current="page"{% endif %}>Recrutement</a></li>
+      </ul>
+      <div class="nav__actions">
+        {% if site.telephone %}<a class="nav__tel" href="tel:{{ site.telephone | tel }}">{{ icon("tel", 18) }}{{ site.telephone_affiche }}</a>{% endif %}
+        <a class="btn btn--primary" href="/devis/">Demander un devis</a>
+      </div>
+    </nav>
+  </div>
+</header>

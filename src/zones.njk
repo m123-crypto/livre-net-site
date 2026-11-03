@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+permalink: /zones/
+titre: Zones d'intervention
+meta_description: Livré Net intervient à Saint-Denis, Saint-Ouen, Aubervilliers, Pantin, Paris nord et dans le Val-d'Oise pour le nettoyage de fin de chantier et de bureaux.
+---
+{% from "partials/icons.njk" import icon %}
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Accueil</a> › Zones</p>
+    <h1>Zones d'intervention</h1>
+    <p class="lead">Basés à {{ site.ville }}, nous intervenons en {{ site.zone_resume }}.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap grid-3">
+    {% for v in collections.villes %}
+    <a class="zone-card" href="{{ v.url }}">
+      <span class="zone-card__ico">{{ icon("pin", 22) }}</span>
+      <h2>{{ v.data.nom }}</h2>
+      <p class="muted">{{ v.data.departement }}</p>
+      <p>{{ v.data.secteurs | join(" · ") }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% include "partials/cta.njk" %}

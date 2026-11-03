@@ -1,0 +1,146 @@
+---
+layout: layouts/base.njk
+permalink: /
+bodyClass: home
+---
+{% from "partials/icons.njk" import icon %}
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <p class="tag"><span class="tag__dot" aria-hidden="true"></span>{{ accueil.hero_etiquette }}</p>
+      <h1>{{ accueil.hero_titre | replace(accueil.hero_mot_vert, '<span class="green">' + accueil.hero_mot_vert + '</span>') | safe }}</h1>
+      <p class="lead">{{ accueil.hero_texte }}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="/devis/">Demander un devis gratuit</a>
+        {% if site.whatsapp %}<a class="btn btn--outline btn--lg" href="https://wa.me/{{ site.whatsapp | wa }}">{{ icon("whatsapp", 20) }}Écrire sur WhatsApp</a>
+        {% elif site.telephone %}<a class="btn btn--outline btn--lg" href="tel:{{ site.telephone | tel }}">{{ icon("tel", 20) }}Appeler</a>
+        {% else %}<a class="btn btn--outline btn--lg" href="/services/">Voir nos services</a>{% endif %}
+      </div>
+      <ul class="atouts">
+        {% for a in accueil.atouts %}<li>{{ icon("check", 20) }}{{ a }}</li>{% endfor %}
+      </ul>
+    </div>
+    <div class="duo hero__visual">
+      {% set src = accueil.hero_image_avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
+      {% set src = accueil.hero_image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Nos services</p>
+        <h2 class="h2">Deux métiers, une même exigence.</h2>
+      </div>
+      <a class="link-more" href="/services/">Tous les services {{ icon("fleche", 18) }}</a>
+    </div>
+    <div class="grid-4">
+      {% for s in collections.services %}{% include "partials/service-card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">{{ accueil.clients_titre }}</p>
+    <h2 class="h2">Du chantier aux bureaux occupés.</h2>
+    <div class="grid-4 clients">
+      {% for c in accueil.clients %}
+      <div class="client"><span class="client__num">0{{ loop.index }}</span><h3>{{ c.titre }}</h3><p>{{ c.texte }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="wrap">
+    <p class="eyebrow">Comment ça marche</p>
+    <h2 class="h2">{{ accueil.etapes_titre }}</h2>
+    <ol class="steps">
+      {% for e in accueil.etapes %}
+      <li class="step">
+        <span class="step__num {% if loop.last %}step__num--done{% endif %}">{% if loop.last %}{{ icon("check", 22) }}{% else %}{{ loop.index }}{% endif %}</span>
+        <h3>{{ e.titre }}</h3>
+        <p>{{ e.texte }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section--brand">
+  <div class="wrap why">
+    <div class="why__head">
+      <p class="eyebrow eyebrow--light">Pourquoi Livré Net</p>
+      <h2 class="h2">{{ accueil.pourquoi_titre }}</h2>
+      <a class="btn btn--light" href="/entreprise/">Nos engagements</a>
+    </div>
+    <div class="why__grid">
+      {% for p in accueil.pourquoi %}
+      <div class="why__item">
+        <span class="why__ico">{{ icon(p.icone, 30) }}</span>
+        <h3>{{ p.titre }}</h3>
+        <p>{{ p.texte }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Réalisations</p>
+        <h2 class="h2">La preuve en photo.</h2>
+      </div>
+      <a class="link-more" href="/realisations/">Toutes les réalisations {{ icon("fleche", 18) }}</a>
+    </div>
+    {% if collections.realisations.length %}
+    <div class="grid-3">
+      {% for r in collections.realisations | limit(3) %}
+      <a class="real-card" href="{{ r.url }}">
+        <div class="duo duo--mini">
+          {% set src = r.data.image_avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
+          {% set src = r.data.image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+        </div>
+        <h3>{{ r.data.titre }}</h3>
+        <p class="muted">{{ r.data.service }} · {{ r.data.lieu }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">
+      <p><strong>Nos premières réalisations arrivent.</strong> À chaque intervention, nous prenons des photos avant/après sous le même angle : elles seront publiées ici, chantier par chantier.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="wrap two-col two-col--center">
+    <div>
+      <p class="eyebrow">Zones d'intervention</p>
+      <h2 class="h2">Le nord de l'Île-de-France.</h2>
+      <p class="muted">Basés à {{ site.ville }}, nous intervenons en {{ site.zone_resume }}. Votre ville n'est pas dans la liste ? Demandez quand même : on étudie chaque chantier.</p>
+    </div>
+    <ul class="chips chips--links">
+      {% for v in collections.villes %}<li><a href="{{ v.url }}">{{ icon("pin", 16) }}{{ v.data.nom }}</a></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap two-col">
+    <div>
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2 class="h2">Vous vous demandez peut-être…</h2>
+      <p class="muted">Une autre question ? Écrivez-nous à <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+    </div>
+    {% include "partials/faq.njk" %}
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

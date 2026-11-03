@@ -1,0 +1,243 @@
+# Espace admin Livré Net (Decap CMS)
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Ajout {{collection}} « {{slug}} »"
+    update: "Modification {{collection}} « {{slug}} »"
+    delete: "Suppression {{collection}} « {{slug}} »"
+    uploadMedia: "Ajout image « {{path}} »"
+    deleteMedia: "Suppression image « {{path}} »"
+
+locale: fr
+site_url: https://livre-net.fr
+display_url: https://livre-net.fr
+logo_url: /assets/img/livre-net-logo.svg
+media_folder: src/assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  # ------------------------------------------------------------ Réglages
+  - name: reglages
+    label: "Réglages du site"
+    label_singular: "Réglage"
+    description: "Coordonnées de l'entreprise, contenu de la page d'accueil et questions fréquentes."
+    editor: { preview: false }
+    files:
+      - name: entreprise
+        label: "Coordonnées de l'entreprise"
+        file: src/_data/site.json
+        fields:
+          - { name: nom, label: "Nom de l'entreprise", widget: string }
+          - { name: slogan, label: "Slogan", widget: string }
+          - { name: url, label: "Adresse du site", widget: string }
+          - { name: telephone, label: "Téléphone (format 0612345678, laisser vide pour masquer)", widget: string, required: false }
+          - { name: telephone_affiche, label: "Téléphone tel qu'affiché (ex. 06 12 34 56 78)", widget: string, required: false }
+          - { name: whatsapp, label: "Numéro WhatsApp (laisser vide pour masquer le bouton)", widget: string, required: false }
+          - { name: email, label: "E-mail de contact", widget: string }
+          - { name: adresse, label: "Adresse du siège", widget: string }
+          - { name: code_postal, label: "Code postal", widget: string }
+          - { name: ville, label: "Ville", widget: string }
+          - { name: horaires, label: "Horaires", widget: string }
+          - { name: delai_reponse, label: "Délai de réponse (ex. 24 h)", widget: string }
+          - { name: zone_resume, label: "Zone d'intervention (une phrase)", widget: string }
+          - { name: forme, label: "Forme juridique", widget: string }
+          - { name: capital, label: "Capital social", widget: string }
+          - { name: siret, label: "SIRET", widget: string }
+          - { name: rcs, label: "RCS", widget: string }
+          - { name: tva, label: "N° de TVA intracommunautaire", widget: string, required: false }
+          - { name: directeur_publication, label: "Directeur de la publication", widget: string }
+          - { name: hebergeur, label: "Hébergeur (mentions légales)", widget: string }
+          - { name: instagram, label: "Lien Instagram", widget: string, required: false }
+          - { name: linkedin, label: "Lien LinkedIn", widget: string, required: false }
+          - { name: facebook, label: "Lien Facebook", widget: string, required: false }
+
+      - name: accueil
+        label: "Page d'accueil"
+        file: src/_data/accueil.json
+        fields:
+          - { name: hero_etiquette, label: "Petite étiquette au-dessus du titre", widget: string }
+          - { name: hero_titre, label: "Grand titre", widget: string }
+          - { name: hero_mot_vert, label: "Mot du titre à afficher en vert", widget: string, required: false }
+          - { name: hero_texte, label: "Texte sous le titre", widget: text }
+          - { name: hero_image_avant, label: "Photo « Avant »", widget: image, required: false }
+          - { name: hero_image_apres, label: "Photo « Après »", widget: image, required: false }
+          - { name: atouts, label: "Points forts (avec une coche)", widget: list, field: { name: atout, label: "Point fort", widget: string } }
+          - { name: clients_titre, label: "Titre « Pour qui »", widget: string }
+          - name: clients
+            label: "Types de clients"
+            widget: list
+            fields:
+              - { name: titre, label: "Titre", widget: string }
+              - { name: texte, label: "Texte", widget: text }
+          - { name: etapes_titre, label: "Titre des étapes", widget: string }
+          - name: etapes
+            label: "Étapes"
+            widget: list
+            fields:
+              - { name: titre, label: "Titre", widget: string }
+              - { name: texte, label: "Texte", widget: text }
+          - { name: pourquoi_titre, label: "Titre « Pourquoi nous »", widget: string }
+          - name: pourquoi
+            label: "Arguments « Pourquoi nous »"
+            widget: list
+            fields:
+              - { name: icone, label: "Icône", widget: select, options: ["horloge", "photo", "bouclier", "check"] }
+              - { name: titre, label: "Titre", widget: string }
+              - { name: texte, label: "Texte", widget: text }
+          - { name: cta_titre, label: "Bandeau final : titre", widget: string }
+          - { name: cta_texte, label: "Bandeau final : texte", widget: text }
+
+      - name: faq
+        label: "Questions fréquentes"
+        file: src/_data/faq.json
+        fields:
+          - name: questions
+            label: "Questions"
+            widget: list
+            fields:
+              - { name: question, label: "Question", widget: string }
+              - { name: reponse, label: "Réponse", widget: text }
+
+  # ------------------------------------------------------------ Réalisations
+  - name: realisations
+    label: "Réalisations (avant/après)"
+    label_singular: "Réalisation"
+    description: "Vos chantiers en photos. Décochez « Brouillon » pour publier."
+    folder: src/realisations
+    create: true
+    slug: "{{slug}}"
+    summary: "{{titre}} — {{lieu}}"
+    sortable_fields: [date, titre]
+    fields:
+      - { name: titre, label: "Titre", widget: string }
+      - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: false, required: false }
+      - { name: service, label: "Service", widget: select, options: ["Fin de chantier", "Entretien de bureaux", "Vitrerie", "Remise en état"] }
+      - { name: lieu, label: "Ville", widget: string }
+      - { name: surface, label: "Surface", widget: string, required: false }
+      - { name: duree, label: "Durée de l'intervention", widget: string, required: false }
+      - { name: image_avant, label: "Photo avant", widget: image }
+      - { name: image_apres, label: "Photo après", widget: image }
+      - { name: resume, label: "Résumé (une phrase)", widget: string }
+      - { name: body, label: "Description", widget: markdown, required: false }
+
+  # ------------------------------------------------------------ Services
+  - name: services
+    label: "Services"
+    label_singular: "Service"
+    folder: src/services
+    create: true
+    slug: "{{slug}}"
+    summary: "{{ordre}}. {{titre}}"
+    sortable_fields: [ordre, titre]
+    fields:
+      - { name: titre, label: "Titre complet", widget: string }
+      - { name: titre_court, label: "Titre court (menu)", widget: string }
+      - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int }
+      - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: false, required: false }
+      - { name: resume, label: "Résumé", widget: text }
+      - { name: meta_description, label: "Description pour Google (150 caractères)", widget: string }
+      - { name: prix_depart, label: "Prix indicatif", widget: string }
+      - { name: image, label: "Photo « Avant »", widget: image, required: false }
+      - { name: image_apres, label: "Photo « Après »", widget: image, required: false }
+      - { name: pour_qui, label: "Pour qui", widget: list, field: { name: item, label: "Client", widget: string } }
+      - { name: inclus, label: "Ce qui est inclus", widget: list, field: { name: item, label: "Prestation", widget: string } }
+      - name: formules
+        label: "Formules (facultatif)"
+        widget: list
+        required: false
+        fields:
+          - { name: nom, label: "Nom", widget: string }
+          - { name: frequence, label: "Fréquence", widget: string }
+          - { name: detail, label: "Détail", widget: string }
+      - { name: body, label: "Texte de la page", widget: markdown }
+
+  # ------------------------------------------------------------ Zones
+  - name: villes
+    label: "Zones d'intervention"
+    label_singular: "Ville"
+    folder: src/villes
+    create: true
+    slug: "{{slug}}"
+    identifier_field: nom
+    summary: "{{ordre}}. {{nom}}"
+    sortable_fields: [ordre, nom]
+    fields:
+      - { name: nom, label: "Ville ou secteur", widget: string }
+      - { name: departement, label: "Département", widget: string }
+      - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int }
+      - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: false, required: false }
+      - { name: meta_description, label: "Description pour Google", widget: string }
+      - { name: secteurs, label: "Quartiers ou communes desservis", widget: list }
+      - { name: body, label: "Texte d'introduction", widget: text }
+
+  # ------------------------------------------------------------ Conseils
+  - name: conseils
+    label: "Conseils (articles)"
+    label_singular: "Article"
+    folder: src/conseils
+    create: true
+    slug: "{{slug}}"
+    summary: "{{titre}}"
+    sortable_fields: [date, titre]
+    fields:
+      - { name: titre, label: "Titre", widget: string }
+      - { name: date, label: "Date de publication", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: false, required: false }
+      - { name: resume, label: "Résumé", widget: text }
+      - { name: image, label: "Image", widget: image, required: false }
+      - { name: body, label: "Article", widget: markdown }
+
+  # ------------------------------------------------------------ Recrutement
+  - name: offres
+    label: "Offres d'emploi"
+    label_singular: "Offre"
+    description: "Décochez « Brouillon » pour publier l'offre sur la page Recrutement."
+    folder: src/offres
+    create: true
+    slug: "{{slug}}"
+    summary: "{{titre}}"
+    fields:
+      - { name: titre, label: "Intitulé du poste", widget: string }
+      - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: true, required: false }
+      - { name: lieu, label: "Lieu", widget: string }
+      - { name: contrat, label: "Type de contrat", widget: string }
+      - { name: horaires, label: "Horaires", widget: string }
+      - { name: salaire, label: "Salaire", widget: string }
+      - { name: resume, label: "Résumé", widget: string }
+      - { name: body, label: "Description du poste", widget: markdown }
+
+  # ------------------------------------------------------------ Pages
+  - name: pages
+    label: "Pages"
+    label_singular: "Page"
+    files:
+      - name: entreprise
+        label: "L'entreprise"
+        file: src/pages/entreprise.md
+        fields:
+          - { name: titre, label: "Titre", widget: string }
+          - { name: sous_titre, label: "Sous-titre", widget: string }
+          - { name: permalink, label: "Adresse (ne pas modifier)", widget: hidden }
+          - { name: meta_description, label: "Description pour Google", widget: string }
+          - { name: body, label: "Contenu", widget: markdown }
+      - name: mentions
+        label: "Mentions légales"
+        file: src/pages/mentions-legales.md
+        fields:
+          - { name: titre, label: "Titre", widget: string }
+          - { name: permalink, label: "Adresse", widget: hidden }
+          - { name: meta_description, label: "Description", widget: hidden }
+          - { name: noindex, label: "Masquer de Google", widget: hidden }
+          - { name: body, label: "Contenu", widget: markdown }
+      - name: confidentialite
+        label: "Confidentialité"
+        file: src/pages/confidentialite.md
+        fields:
+          - { name: titre, label: "Titre", widget: string }
+          - { name: permalink, label: "Adresse", widget: hidden }
+          - { name: meta_description, label: "Description", widget: hidden }
+          - { name: noindex, label: "Masquer de Google", widget: hidden }
+          - { name: body, label: "Contenu", widget: markdown }

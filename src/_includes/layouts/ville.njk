@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+---
+{% from "partials/icons.njk" import icon %}
+{% set titre_page = "Nettoyage à " + nom %}
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Accueil</a> › <a href="/zones/">Zones</a> › {{ nom }}</p>
+    <h1>Nettoyage de fin de chantier et de bureaux à {{ nom }}</h1>
+    <p class="lead">{{ content | striptags | trim }}</p>
+    <div class="btn-row"><a class="btn btn--primary btn--lg" href="/devis/">Demander un devis à {{ nom }}</a></div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap two-col">
+    <div>
+      <h2 class="h2">Nos services à {{ nom }}</h2>
+      <div class="list-links">
+        {% for s in collections.services %}<a href="{{ s.url }}"><strong>{{ s.data.titre }}</strong><span>{{ s.data.resume }}</span>{{ icon("fleche", 18) }}</a>{% endfor %}
+      </div>
+    </div>
+    <div class="card">
+      <h2>Secteurs desservis</h2>
+      <p class="muted">{{ departement }}</p>
+      <ul class="chips">{% for q in secteurs %}<li>{{ q }}</li>{% endfor %}</ul>
+      <ul class="checklist">
+        <li>{{ icon("check", 20) }}<span>Visite gratuite sur place</span></li>
+        <li>{{ icon("check", 20) }}<span>Devis sous {{ site.delai_reponse }}</span></li>
+        <li>{{ icon("check", 20) }}<span>Photos avant/après à chaque intervention</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% include "partials/cta.njk" %}

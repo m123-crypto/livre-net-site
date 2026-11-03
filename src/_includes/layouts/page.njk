@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero">
+  <div class="wrap">
+    <h1>{{ titre }}</h1>
+    {% if sous_titre %}<p class="lead">{{ sous_titre }}</p>{% endif %}
+  </div>
+</section>
+<section class="section">
+  <div class="wrap prose">
+    {{ content | safe }}
+  </div>
+</section>
+{% if not noindex %}{% include "partials/cta.njk" %}{% endif %}

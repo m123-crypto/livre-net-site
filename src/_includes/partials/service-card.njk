@@ -1,0 +1,8 @@
+{% from "partials/icons.njk" import icon %}
+{% set icones = { "fin-de-chantier": "chantier", "entretien-de-bureaux": "bureau", "vitrerie": "vitre", "remise-en-etat": "cle" } %}
+<a class="service-card" href="{{ s.url }}">
+  <span class="service-card__ico">{{ icon(icones[s.fileSlug] or "check", 26) }}</span>
+  <h3>{{ s.data.titre }}</h3>
+  <p>{{ s.data.resume }}</p>
+  <span class="service-card__more">Découvrir {{ icon("fleche", 18) }}</span>
+</a>

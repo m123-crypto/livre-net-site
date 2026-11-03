@@ -2,6 +2,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/verif": "/" });
+  eleventyConfig.ignores.add("src/verif/**");
 
   const published = (items) => items.filter((i) => !i.data.brouillon);
   const byOrder = (a, b) => (a.data.ordre ?? 99) - (b.data.ordre ?? 99);

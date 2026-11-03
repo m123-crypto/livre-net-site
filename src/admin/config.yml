@@ -135,6 +135,7 @@ collections:
       - { name: titre, label: "Titre complet", widget: string }
       - { name: titre_court, label: "Titre court (menu)", widget: string }
       - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int }
+      - { name: public, label: "Pour qui", widget: select, options: [{ label: "Professionnels", value: "pro" }, { label: "Particuliers", value: "particulier" }], default: "pro" }
       - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: false, required: false }
       - { name: resume, label: "Résumé", widget: text }
       - { name: meta_description, label: "Description pour Google (150 caractères)", widget: string }

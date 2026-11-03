@@ -1,36 +1,76 @@
 {
   "hero_etiquette": "Seine-Saint-Denis · Val-d'Oise · Paris nord",
-  "hero_titre": "Vos chantiers livrés propres, à l'heure.",
-  "hero_mot_vert": "propres",
-  "hero_texte": "Nettoyage de fin de chantier et entretien de bureaux. Notre équipe intervient avant vos livraisons et vos OPR, avec photos avant/après à chaque passage.",
+  "hero_titre": "Chantiers, bureaux, maisons : livrés nets.",
+  "hero_mot_vert": "nets",
+  "hero_texte": "Nettoyage de fin de chantier, entretien d'entreprises et de bureaux, ménage à domicile, canapés et voitures. Une équipe encadrée, un devis rapide et des photos avant/après à chaque passage.",
   "hero_image_avant": "",
   "hero_image_apres": "",
   "atouts": [
     "Devis sous 24 h",
-    "Visite gratuite du chantier",
+    "Visite gratuite pour les pros",
     "Photos avant/après offertes"
   ],
   "clients_titre": "Pour qui nous travaillons",
   "clients": [
-    { "titre": "Entreprises du BTP", "texte": "Entreprises générales, gros œuvre et second œuvre qui doivent livrer un chantier propre, sans réserve." },
-    { "titre": "Promoteurs et aménageurs", "texte": "Plateaux de bureaux, commerces et logements neufs à remettre clés en main." },
-    { "titre": "Bureaux et cabinets", "texte": "PME, cabinets médicaux, comptables ou d'avocats, agences et coworkings." },
-    { "titre": "Agences et syndics", "texte": "Remises en état après départ de locataire, parties communes, locaux vacants." }
+    {
+      "titre": "Entreprises du BTP",
+      "texte": "Entreprises générales, gros œuvre et second œuvre qui doivent livrer un chantier propre, sans réserve."
+    },
+    {
+      "titre": "Entreprises et bureaux",
+      "texte": "PME, commerces, cabinets, agences et coworkings, en entretien régulier ou ponctuel."
+    },
+    {
+      "titre": "Agences et syndics",
+      "texte": "Remises en état après départ de locataire, parties communes, locaux vacants."
+    },
+    {
+      "titre": "Particuliers",
+      "texte": "Ménage, état des lieux, canapés, tapis, matelas et voitures, chez vous."
+    }
   ],
   "pourquoi_titre": "Un interlocuteur unique, du travail prouvé.",
   "pourquoi": [
-    { "icone": "horloge", "titre": "Réactifs", "texte": "Réponse et devis sous 24 h. Intervention en urgence possible avant une livraison." },
-    { "icone": "photo", "titre": "Preuve en photo", "texte": "Chaque intervention se termine par des photos envoyées le jour même, sur WhatsApp ou par e-mail." },
-    { "icone": "bouclier", "titre": "Assurés et déclarés", "texte": "Agents salariés, assurance responsabilité civile professionnelle, attestation URSSAF fournie sur demande." },
-    { "icone": "check", "titre": "Contrôle qualité", "texte": "Une fiche par site, une grille de contrôle et une visite de vérification chaque mois pour les contrats." }
+    {
+      "icone": "horloge",
+      "titre": "Réactifs",
+      "texte": "Réponse et devis sous 24 h. Intervention en urgence possible avant une livraison."
+    },
+    {
+      "icone": "photo",
+      "titre": "Preuve en photo",
+      "texte": "Chaque intervention se termine par des photos envoyées le jour même, sur WhatsApp ou par e-mail."
+    },
+    {
+      "icone": "bouclier",
+      "titre": "Une équipe encadrée",
+      "texte": "Des agents formés à nos méthodes et un responsable qui vérifie le travail. Un seul interlocuteur pour vous."
+    },
+    {
+      "icone": "check",
+      "titre": "Contrôle qualité",
+      "texte": "Une fiche par site, une grille de contrôle et une visite de vérification chaque mois pour les contrats."
+    }
   ],
-  "etapes_titre": "De votre appel à la livraison, en 4 étapes.",
+  "etapes_titre": "De votre appel au résultat, en 4 étapes.",
   "etapes": [
-    { "titre": "Visite gratuite", "texte": "On vient voir le chantier ou vos locaux : surfaces, état, accès, délais." },
-    { "titre": "Devis sous 24 h", "texte": "Un prix clair, au m² ou au forfait mensuel, sans frais cachés." },
-    { "titre": "Intervention", "texte": "Notre équipe intervient à la date prévue, avec son matériel et ses produits." },
-    { "titre": "Contrôle et photos", "texte": "Vous recevez les photos avant/après le jour même. Le chantier est livré net." }
+    {
+      "titre": "Votre demande",
+      "texte": "Par téléphone, WhatsApp ou le formulaire : surface, adresse, date, photos si possible."
+    },
+    {
+      "titre": "Devis sous 24 h",
+      "texte": "Un prix clair, au m², à l'heure ou au forfait, sans frais cachés. Visite gratuite pour les chantiers et les bureaux."
+    },
+    {
+      "titre": "Intervention",
+      "texte": "Notre équipe vient à la date prévue, avec son matériel et ses produits."
+    },
+    {
+      "titre": "Contrôle et photos",
+      "texte": "Vous recevez les photos avant/après le jour même. C'est livré net."
+    }
   ],
-  "cta_titre": "Un chantier à livrer ou des bureaux à entretenir ?",
-  "cta_texte": "Décrivez votre besoin en 2 minutes. On vous rappelle sous 24 h avec une date de visite."
+  "cta_titre": "Un chantier, des bureaux ou une maison à nettoyer ?",
+  "cta_texte": "Décrivez votre besoin en 2 minutes. On vous rappelle sous 24 h avec un prix ou une date de visite."
 }

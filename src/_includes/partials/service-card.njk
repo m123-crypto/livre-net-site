@@ -1,8 +1,9 @@
 {% from "partials/icons.njk" import icon %}
-{% set icones = { "fin-de-chantier": "chantier", "entretien-de-bureaux": "bureau", "vitrerie": "vitre", "remise-en-etat": "cle" } %}
+{% set icones = { "fin-de-chantier": "chantier", "entretien-de-bureaux": "bureau", "vitrerie": "vitre", "remise-en-etat": "cle", "nettoyage-maison": "maison", "canape-tapis-matelas": "canape", "nettoyage-voiture": "voiture" } %}
 <a class="service-card" href="{{ s.url }}">
   <span class="service-card__ico">{{ icon(icones[s.fileSlug] or "check", 26) }}</span>
   <h3>{{ s.data.titre }}</h3>
   <p>{{ s.data.resume }}</p>
+  {% if s.data.public == "particulier" and s.data.prix_depart %}<p class="service-card__prix">{{ s.data.prix_depart }}</p>{% endif %}
   <span class="service-card__more">Découvrir {{ icon("fleche", 18) }}</span>
 </a>

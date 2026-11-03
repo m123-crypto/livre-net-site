@@ -2,18 +2,25 @@
 layout: layouts/base.njk
 permalink: /services/
 titre: Nos services
-meta_description: Nettoyage de fin de chantier, entretien de bureaux, vitrerie et remise en état en Seine-Saint-Denis, Val-d'Oise et Paris nord.
+meta_description: Nettoyage de fin de chantier, entreprises et bureaux, vitrerie, remise en état, ménage à domicile, canapés et voitures en Seine-Saint-Denis et Paris nord.
 ---
 <section class="page-hero">
   <div class="wrap">
     <p class="crumbs"><a href="/">Accueil</a> › Services</p>
     <h1>Nos services</h1>
-    <p class="lead">Du chantier qui se termine aux bureaux occupés au quotidien : une seule équipe, la même exigence, et la preuve en photo.</p>
+    <p class="lead">Pour les professionnels comme pour les particuliers : une seule équipe, la même exigence, et la preuve en photo.</p>
   </div>
 </section>
 <section class="section">
-  <div class="wrap grid-2">
-    {% for s in collections.services %}{% include "partials/service-card.njk" %}{% endfor %}
+  <div class="wrap">
+    <h2 class="group-title">Pour les professionnels</h2>
+    <div class="grid-2">
+      {% for s in collections.servicesPro %}{% include "partials/service-card.njk" %}{% endfor %}
+    </div>
+    <h2 class="group-title">Pour les particuliers</h2>
+    <div class="grid-3">
+      {% for s in collections.servicesParticuliers %}{% include "partials/service-card.njk" %}{% endfor %}
+    </div>
   </div>
 </section>
 {% include "partials/cta.njk" %}

@@ -2,6 +2,7 @@
 titre: Remise en état de locaux et logements
 titre_court: Remise en état
 ordre: 4
+public: pro
 resume: Après un départ de locataire, une rénovation ou avant une mise en location, des locaux remis à neuf côté propreté.
 meta_description: Remise en état de logements et locaux après départ de locataire ou travaux, en Seine-Saint-Denis, Val-d'Oise et Paris nord. Agences, syndics, propriétaires.
 prix_depart: "Forfait sur devis"

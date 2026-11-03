@@ -2,6 +2,7 @@
 titre: Nettoyage de vitres et vitrerie
 titre_court: Vitrerie
 ordre: 3
+public: pro
 resume: Vitres, baies, vitrines et cloisons vitrées, en ponctuel ou en entretien régulier, accessibles sans nacelle.
 meta_description: Nettoyage de vitres, vitrines et baies vitrées pour bureaux, commerces et fins de chantier en Seine-Saint-Denis et Paris nord. Devis sous 24 h.
 prix_depart: "Sur devis, au m² ou au forfait"

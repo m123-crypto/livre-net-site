@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{%- if seo_titre %}{% set pageTitle = seo_titre %}{% elif titre %}{% set pageTitle = titre + " | " + site.nom %}{% else %}{% set pageTitle = site.nom + " — Nettoyage fin de chantier et bureaux, Saint-Denis (93)" %}{% endif %}
+{%- if seo_titre %}{% set pageTitle = seo_titre %}{% elif titre %}{% set pageTitle = titre + " | " + site.nom %}{% else %}{% set pageTitle = site.nom + " — Nettoyage de chantiers, bureaux et maisons, Saint-Denis (93)" %}{% endif %}
 <title>{{ pageTitle }}</title>
-<meta name="description" content="{{ meta_description or resume or 'Nettoyage de fin de chantier et entretien de bureaux en Seine-Saint-Denis, Val-d\'Oise et Paris nord. Devis sous 24 h, photos avant/après.' }}">
+<meta name="description" content="{{ meta_description or resume or 'Nettoyage de fin de chantier, entreprises et bureaux, ménage à domicile, canapés et voitures en Seine-Saint-Denis et Paris nord. Devis sous 24 h, photos avant/après.' }}">
 <link rel="canonical" href="{{ (page.url or "/") | absolute(site.url) }}">
 {% if noindex %}<meta name="robots" content="noindex">{% endif %}
 <meta property="og:type" content="website">
@@ -29,7 +29,7 @@
   "@type": "LocalBusiness",
   "@id": "{{ site.url }}/#entreprise",
   "name": {{ site.nom | json | safe }},
-  "description": "Nettoyage de fin de chantier et entretien de bureaux",
+  "description": "Nettoyage de fin de chantier, entreprises et bureaux, particuliers, canapés et voitures",
   "url": {{ site.url | json | safe }},
   "logo": "{{ site.url }}/assets/img/livre-net-logo.png",
   "image": "{{ site.url }}/assets/img/og-image.png",

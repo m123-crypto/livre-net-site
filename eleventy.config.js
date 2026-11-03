@@ -8,6 +8,12 @@ export default function (eleventyConfig) {
   const published = (items) => items.filter((i) => !i.data.brouillon);
   const byOrder = (a, b) => (a.data.ordre ?? 99) - (b.data.ordre ?? 99);
 
+  eleventyConfig.addCollection("servicesPro", (api) =>
+    published(api.getFilteredByGlob("src/services/*.md")).filter((p) => p.data.public !== "particulier").sort(byOrder)
+  );
+  eleventyConfig.addCollection("servicesParticuliers", (api) =>
+    published(api.getFilteredByGlob("src/services/*.md")).filter((p) => p.data.public === "particulier").sort(byOrder)
+  );
   eleventyConfig.addCollection("services", (api) =>
     published(api.getFilteredByGlob("src/services/*.md")).sort(byOrder)
   );

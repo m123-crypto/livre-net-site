@@ -32,12 +32,17 @@ bodyClass: home
     <div class="section-head">
       <div>
         <p class="eyebrow">Nos services</p>
-        <h2 class="h2">Deux métiers, une même exigence.</h2>
+        <h2 class="h2">Du chantier à votre salon, la même exigence.</h2>
       </div>
       <a class="link-more" href="/services/">Tous les services {{ icon("fleche", 18) }}</a>
     </div>
+    <h3 class="group-title">Pour les professionnels</h3>
     <div class="grid-4">
-      {% for s in collections.services %}{% include "partials/service-card.njk" %}{% endfor %}
+      {% for s in collections.servicesPro %}{% include "partials/service-card.njk" %}{% endfor %}
+    </div>
+    <h3 class="group-title">Pour les particuliers</h3>
+    <div class="grid-3">
+      {% for s in collections.servicesParticuliers %}{% include "partials/service-card.njk" %}{% endfor %}
     </div>
   </div>
 </section>
@@ -45,7 +50,7 @@ bodyClass: home
 <section class="section">
   <div class="wrap">
     <p class="eyebrow">{{ accueil.clients_titre }}</p>
-    <h2 class="h2">Du chantier aux bureaux occupés.</h2>
+    <h2 class="h2">Des chantiers aux particuliers.</h2>
     <div class="grid-4 clients">
       {% for c in accueil.clients %}
       <div class="client"><span class="client__num">0{{ loop.index }}</span><h3>{{ c.titre }}</h3><p>{{ c.texte }}</p></div>

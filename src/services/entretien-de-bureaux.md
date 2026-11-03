@@ -1,7 +1,8 @@
 ---
-titre: Entretien de bureaux
-titre_court: Entretien de bureaux
+titre: Nettoyage d'entreprises et de bureaux
+titre_court: Entreprises et bureaux
 ordre: 2
+public: pro
 resume: Un forfait fixe au mois, tôt le matin ou le soir, avec le même agent et un contrôle qualité chaque mois.
 meta_description: Entretien de bureaux et locaux professionnels en Seine-Saint-Denis, Val-d'Oise et Paris nord. Forfait mensuel, agent dédié, contrôle qualité. Devis sous 24 h.
 prix_depart: "Forfait mensuel sur devis"

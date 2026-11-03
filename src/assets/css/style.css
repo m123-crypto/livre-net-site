@@ -307,3 +307,7 @@ p { margin: 0 0 1em; }
 .section--tight { padding-top: 0; }
 .check span a { white-space: nowrap; }
 .section--alt + .section--tight { padding-top: 80px; }
+
+.group-title { font-size: 1.05rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--fresh-text, #137258); margin: 8px 0 16px; }
+.group-title:not(:first-child) { margin-top: 40px; }
+.service-card__prix { flex: 0 !important; font-weight: 700; color: var(--fresh-text, #137258) !important; font-size: .9rem !important; }

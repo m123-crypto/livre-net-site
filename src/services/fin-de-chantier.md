@@ -2,6 +2,7 @@
 titre: Nettoyage de fin de chantier
 titre_court: Fin de chantier
 ordre: 1
+public: pro
 resume: Des locaux prêts à être livrés, sans réserve liée à la propreté, avant vos OPR et vos réceptions.
 meta_description: Nettoyage de fin de chantier en Seine-Saint-Denis, Val-d'Oise et Paris nord. Dépoussiérage, traces de peinture et de plâtre, vitres. Devis sous 24 h.
 prix_depart: "Sur devis, au m²"

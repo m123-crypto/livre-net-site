@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="800" fill="#EEF2F4"/>
+<path d="M0 0 L120 120 L120 560 L0 800 Z" fill="#E3E9ED"/>
+<path d="M600 0 L480 120 L480 560 L600 800 Z" fill="#E3E9ED"/>
+<path d="M120 560 L480 560 L600 800 L0 800 Z" fill="#C9D7E0"/>
+<line x1="160" y1="560" x2="20" y2="800" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="220" y1="560" x2="140" y2="800" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="280" y1="560" x2="260" y2="800" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="340" y1="560" x2="380" y2="800" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="400" y1="560" x2="500" y2="800" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="460" y1="560" x2="620" y2="800" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="100.0" y1="600" x2="500.0" y2="600" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="75.0" y1="650" x2="525.0" y2="650" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<line x1="42.5" y1="715" x2="557.5" y2="715" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+<rect x="200" y="170" width="200" height="230" rx="6" fill="#FFFFFF"/>
+<rect x="212" y="182" width="176" height="206" fill="#BFE3F5"/>
+<line x1="300" y1="182" x2="300" y2="388" stroke="#FFFFFF" stroke-width="8"/>
+<line x1="212" y1="285" x2="388" y2="285" stroke="#FFFFFF" stroke-width="8"/>
+<path d="M30 300 L90 290 L90 590 L30 650 Z" fill="#FFFFFF" stroke="#A9A296" stroke-opacity="0"/>
+<rect x="120" y="548" width="360" height="12" fill="#FFFFFF"/>
+<path d="M250 580 L330 580 L400 790 L250 790 Z" fill="#FFFFFF" fill-opacity=".35"/>
+<path d="M224 360 L270 196 L284 196 L238 360 Z" fill="#FFFFFF" fill-opacity=".55"/>
+<rect x="415" y="610" width="48" height="56" rx="8" fill="#143A5A"/>
+<path d="M439 612 C420 570 405 560 395 540 M439 612 C445 565 455 545 470 530 M439 612 C432 580 440 560 438 535" stroke="#1F9E7A" stroke-width="8" stroke-linecap="round" fill="none"/>
+<path d="M170 604 Q172 618 186 620 Q172 622 170 636 Q168 622 154 620 Q168 618 170 604 Z" fill="#1F9E7A"/>
+<path d="M330 638 Q332 658 352 660 Q332 662 330 682 Q328 662 308 660 Q328 658 330 638 Z" fill="#1F9E7A"/>
+<path d="M470 226 Q472 238 484 240 Q472 242 470 254 Q468 242 456 240 Q468 238 470 226 Z" fill="#1F9E7A"/>
+<path d="M150 188 Q152 198 162 200 Q152 202 150 212 Q148 202 138 200 Q148 198 150 188 Z" fill="#1F9E7A"/>
+</svg>

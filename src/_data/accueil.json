@@ -1,16 +1,7 @@
 {
-  "hero_etiquette": "Seine-Saint-Denis · Val-d'Oise · Paris nord",
-  "hero_titre": "Chantiers, bureaux, maisons : livrés nets.",
+  "cta_titre": "Un chantier, des bureaux ou une maison à nettoyer ?",
   "hero_mot_vert": "nets",
-  "hero_texte": "Nettoyage de fin de chantier, entretien d'entreprises et de bureaux, ménage à domicile, canapés et voitures. Une équipe encadrée, un devis rapide et des photos avant/après à chaque passage.",
-  "hero_image_avant": "",
   "hero_image_apres": "",
-  "atouts": [
-    "Devis sous 24 h",
-    "Visite gratuite pour les pros",
-    "Photos avant/après offertes"
-  ],
-  "clients_titre": "Pour qui nous travaillons",
   "clients": [
     {
       "titre": "Entreprises du BTP",
@@ -29,7 +20,35 @@
       "texte": "Ménage, état des lieux, canapés, tapis, matelas et voitures, chez vous."
     }
   ],
+  "hero_image_avant": "",
+  "cta_texte": "Décrivez votre besoin en 2 minutes. On vous rappelle sous 24 h avec un prix ou une date de visite.",
+  "etapes": [
+    {
+      "titre": "Votre demande",
+      "texte": "Par téléphone, WhatsApp ou le formulaire : surface, adresse, date, photos si possible."
+    },
+    {
+      "titre": "Devis sous 24 h",
+      "texte": "Un prix clair, au m², à l'heure ou au forfait, sans frais cachés. Visite gratuite pour les chantiers et les bureaux."
+    },
+    {
+      "titre": "Intervention",
+      "texte": "Notre équipe vient à la date prévue, avec son matériel et ses produits."
+    },
+    {
+      "titre": "Contrôle et photos",
+      "texte": "Vous recevez les photos avant/après le jour même. C'est livré net."
+    }
+  ],
   "pourquoi_titre": "Un interlocuteur unique, du travail prouvé.",
+  "hero_titre": "Chantiers, bureaux, maisons : livrés nets.",
+  "hero_texte": "Nettoyage de fin de chantier, entretien d'entreprises et de bureaux, ménage à domicile, canapés et voitures. Une équipe encadrée, un devis rapide et des photos avant/après à chaque passage.",
+  "atouts": [
+    "Devis sous 24 h",
+    "Visite gratuite pour les pros",
+    "Photos avant/après offertes"
+  ],
+  "hero_etiquette": "Seine-Saint-Denis · Val-d'Oise · Paris nord",
   "pourquoi": [
     {
       "icone": "horloge",
@@ -52,25 +71,6 @@
       "texte": "Une fiche par site, une grille de contrôle et une visite de vérification chaque mois pour les contrats."
     }
   ],
-  "etapes_titre": "De votre appel au résultat, en 4 étapes.",
-  "etapes": [
-    {
-      "titre": "Votre demande",
-      "texte": "Par téléphone, WhatsApp ou le formulaire : surface, adresse, date, photos si possible."
-    },
-    {
-      "titre": "Devis sous 24 h",
-      "texte": "Un prix clair, au m², à l'heure ou au forfait, sans frais cachés. Visite gratuite pour les chantiers et les bureaux."
-    },
-    {
-      "titre": "Intervention",
-      "texte": "Notre équipe vient à la date prévue, avec son matériel et ses produits."
-    },
-    {
-      "titre": "Contrôle et photos",
-      "texte": "Vous recevez les photos avant/après le jour même. C'est livré net."
-    }
-  ],
-  "cta_titre": "Un chantier, des bureaux ou une maison à nettoyer ?",
-  "cta_texte": "Décrivez votre besoin en 2 minutes. On vous rappelle sous 24 h avec un prix ou une date de visite."
+  "clients_titre": "Pour qui nous travaillons",
+  "etapes_titre": "De votre appel au résultat, en 4 étapes."
 }

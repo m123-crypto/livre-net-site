@@ -10,10 +10,7 @@ layout: layouts/base.njk
 </section>
 <section class="section">
   <div class="wrap">
-    <div class="duo duo--large">
-      {% set src = image_avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
-      {% set src = image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
-    </div>
+    {% set paires = galerie | paires(image_avant, image_apres) %}{% set duoClass = "duo--large" %}{% include "partials/diapo.njk" %}
     <div class="prose" style="margin-top:2rem">{{ content | safe }}</div>
   </div>
 </section>

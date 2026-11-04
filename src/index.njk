@@ -20,9 +20,8 @@ bodyClass: home
         {% for a in accueil.atouts %}<li>{{ icon("check", 20) }}{{ a }}</li>{% endfor %}
       </ul>
     </div>
-    <div class="duo hero__visual">
-      {% set src = accueil.hero_image_avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
-      {% set src = accueil.hero_image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+    <div class="hero__visual">
+      {% set paires = accueil.hero_galerie | paires(accueil.hero_image_avant, accueil.hero_image_apres) %}{% set duoClass = "" %}{% include "partials/diapo.njk" %}
     </div>
   </div>
 </section>

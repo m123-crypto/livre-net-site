@@ -1,0 +1,22 @@
+{# params: paires (liste {avant, apres, legende}), duoClass, diapoId #}
+{% if not paires or paires.length == 0 %}{% set paires = [{ avant: "", apres: "", legende: "" }] %}{% endif %}
+<div class="diapo{% if paires.length > 1 %} diapo--multi{% endif %}" data-diapo aria-roledescription="carrousel" aria-label="Photos avant/après">
+  <div class="diapo__track" data-diapo-track tabindex="0">
+    {% for p in paires %}
+    <div class="diapo__slide" role="group" aria-roledescription="diapositive" aria-label="{{ loop.index }} sur {{ paires.length }}">
+      <div class="duo {{ duoClass }}">
+        {% set src = p.avant %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
+        {% set src = p.apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+      </div>
+      {% if p.legende %}<p class="diapo__legende">{{ p.legende }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% if paires.length > 1 %}
+  <div class="diapo__nav">
+    <button class="diapo__btn" type="button" data-diapo-prev aria-label="Photos précédentes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="diapo__dots">{% for p in paires %}<button type="button" class="diapo__dot" data-diapo-dot="{{ loop.index0 }}" aria-label="Voir les photos {{ loop.index }}"></button>{% endfor %}</div>
+    <button class="diapo__btn" type="button" data-diapo-next aria-label="Photos suivantes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  {% endif %}
+</div>

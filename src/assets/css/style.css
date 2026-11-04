@@ -313,3 +313,19 @@ p { margin: 0 0 1em; }
 .service-card__prix { flex: 0 !important; font-weight: 700; color: var(--fresh-text, #137258) !important; font-size: .9rem !important; }
 
 .site-header .btn { white-space: nowrap; }
+
+/* Diaporama avant/après */
+.diapo { position: relative; }
+.diapo__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; border-radius: var(--r-lg); }
+.diapo__track::-webkit-scrollbar { display: none; }
+.diapo__track:focus-visible { outline: 3px solid var(--fresh); outline-offset: 4px; }
+.diapo__slide { flex: 0 0 100%; scroll-snap-align: start; min-width: 0; }
+.diapo__legende { margin: 10px 0 0; font-size: .9rem; color: var(--muted); text-align: center; }
+.diapo__nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
+.diapo__btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); color: var(--brand); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.diapo__btn:hover { border-color: var(--brand); }
+.diapo__dots { display: flex; gap: 4px; }
+.diapo__dot { width: 24px; height: 24px; border: 0; background: transparent; padding: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.diapo__dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--line); transition: background .2s, transform .2s; }
+.diapo__dot[aria-current="true"]::before { background: var(--brand); transform: scale(1.25); }
+@media (prefers-reduced-motion: reduce) { .diapo__track { scroll-behavior: auto; } }

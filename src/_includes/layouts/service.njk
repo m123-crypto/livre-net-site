@@ -14,9 +14,8 @@ layout: layouts/base.njk
       </div>
       <p class="price-note">{{ prix_depart }} · Visite gratuite · Devis sous {{ site.delai_reponse }}</p>
     </div>
-    <div class="duo">
-      {% set src = image %}{% set label = "Avant" %}{% set tone = "avant" %}{% include "partials/photo.njk" %}
-      {% set src = image_apres %}{% set label = "Après" %}{% set tone = "apres" %}{% include "partials/photo.njk" %}
+    <div>
+      {% set paires = galerie | paires(image, image_apres) %}{% set duoClass = "" %}{% include "partials/diapo.njk" %}
     </div>
   </div>
 </section>

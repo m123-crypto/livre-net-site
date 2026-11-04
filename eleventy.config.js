@@ -8,6 +8,13 @@ export default function (eleventyConfig) {
   const published = (items) => items.filter((i) => !i.data.brouillon);
   const byOrder = (a, b) => (a.data.ordre ?? 99) - (b.data.ordre ?? 99);
 
+  // Paires avant/après pour le diaporama : galerie + ancienne paire unique
+  eleventyConfig.addFilter("paires", (galerie, avant, apres, legende) => {
+    const out = [];
+    if (avant || apres) out.push({ avant: avant || "", apres: apres || "", legende: legende || "" });
+    for (const g of galerie || []) if (g && (g.avant || g.apres)) out.push({ avant: g.avant || "", apres: g.apres || "", legende: g.legende || "" });
+    return out;
+  });
   eleventyConfig.addCollection("servicesPro", (api) =>
     published(api.getFilteredByGlob("src/services/*.md")).filter((p) => p.data.public !== "particulier").sort(byOrder)
   );

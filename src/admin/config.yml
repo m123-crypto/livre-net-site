@@ -62,6 +62,16 @@ collections:
           - { name: hero_texte, label: "Texte sous le titre", widget: text }
           - { name: hero_image_avant, label: "Photo « Avant »", widget: image, required: false }
           - { name: hero_image_apres, label: "Photo « Après »", widget: image, required: false }
+          - name: hero_galerie
+            label: "Autres photos avant/après (diaporama)"
+            label_singular: "paire de photos"
+            hint: "Ajoutez autant de paires que vous voulez : elles défilent en diaporama."
+            widget: list
+            required: false
+            fields:
+              - { name: avant, label: "Photo avant", widget: image }
+              - { name: apres, label: "Photo après", widget: image }
+              - { name: legende, label: "Légende (facultatif)", widget: string, required: false }
           - { name: atouts, label: "Points forts (avec une coche)", widget: list, field: { name: atout, label: "Point fort", widget: string } }
           - { name: clients_titre, label: "Titre « Pour qui »", widget: string }
           - name: clients
@@ -113,12 +123,22 @@ collections:
       - { name: titre, label: "Titre", widget: string }
       - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
       - { name: brouillon, label: "Brouillon (non publié)", widget: boolean, default: false, required: false }
-      - { name: service, label: "Service", widget: select, options: ["Fin de chantier", "Entretien de bureaux", "Vitrerie", "Remise en état"] }
+      - { name: service, label: "Service", widget: select, options: ["Fin de chantier", "Entreprises et bureaux", "Vitrerie", "Remise en état", "Maison et appartement", "Canapés, tapis, matelas", "Voiture"] }
       - { name: lieu, label: "Ville", widget: string }
       - { name: surface, label: "Surface", widget: string, required: false }
       - { name: duree, label: "Durée de l'intervention", widget: string, required: false }
       - { name: image_avant, label: "Photo avant", widget: image }
       - { name: image_apres, label: "Photo après", widget: image }
+      - name: galerie
+        label: "Autres photos avant/après (diaporama)"
+        label_singular: "paire de photos"
+        hint: "Ajoutez autant de paires que vous voulez : elles défilent en diaporama."
+        widget: list
+        required: false
+        fields:
+          - { name: avant, label: "Photo avant", widget: image }
+          - { name: apres, label: "Photo après", widget: image }
+          - { name: legende, label: "Légende (facultatif)", widget: string, required: false }
       - { name: resume, label: "Résumé (une phrase)", widget: string }
       - { name: body, label: "Description", widget: markdown, required: false }
 
@@ -142,6 +162,16 @@ collections:
       - { name: prix_depart, label: "Prix indicatif", widget: string }
       - { name: image, label: "Photo « Avant »", widget: image, required: false }
       - { name: image_apres, label: "Photo « Après »", widget: image, required: false }
+      - name: galerie
+        label: "Autres photos avant/après (diaporama)"
+        label_singular: "paire de photos"
+        hint: "Ajoutez autant de paires que vous voulez : elles défilent en diaporama."
+        widget: list
+        required: false
+        fields:
+          - { name: avant, label: "Photo avant", widget: image }
+          - { name: apres, label: "Photo après", widget: image }
+          - { name: legende, label: "Légende (facultatif)", widget: string, required: false }
       - { name: pour_qui, label: "Pour qui", widget: list, field: { name: item, label: "Client", widget: string } }
       - { name: inclus, label: "Ce qui est inclus", widget: list, field: { name: item, label: "Prestation", widget: string } }
       - name: formules
